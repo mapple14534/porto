@@ -60,7 +60,6 @@ const SkillsSection: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text font-poppins">
             Skills & Expertise
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto font-inter">
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-inter">
             Constantly evolving and mastering new technologies to deliver cutting-edge solutions
           </p>
