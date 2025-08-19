@@ -37,7 +37,6 @@ const AboutSection: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text font-poppins">
             About Me
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto font-inter">
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-inter">
             I have been involved in the web development field for 2 years and love
             to create visually appealing and functional web solutions.
@@ -57,7 +56,6 @@ const AboutSection: React.FC = () => {
                 <MapPin className="text-primary-cyan mr-3" size={24} />
                 <h3 className="text-xl font-semibold font-poppins">Location</h3>
               </div>
-              <p className="text-gray-300 font-inter">Indonesia</p>
               <p className="text-gray-600 dark:text-gray-300 font-inter">Indonesia</p>
             </div>
 
@@ -66,7 +64,6 @@ const AboutSection: React.FC = () => {
                 <Award className="text-primary-purple mr-3" size={24} />
                 <h3 className="text-xl font-semibold font-poppins">Experience</h3>
               </div>
-              <p className="text-gray-300 font-inter">2+ Years in Web Development</p>
               <p className="text-gray-600 dark:text-gray-300 font-inter">2+ Years in Web Development</p>
             </div>
 
@@ -75,7 +72,6 @@ const AboutSection: React.FC = () => {
                 <Code2 className="text-primary-cyan mr-3" size={24} />
                 <h3 className="text-xl font-semibold font-poppins">Specialization</h3>
               </div>
-              <p className="text-gray-300 font-inter">Full-Stack Web Development</p>
               <p className="text-gray-600 dark:text-gray-300 font-inter">Full-Stack Web Development</p>
             </div>
           </motion.div>
@@ -114,7 +110,6 @@ const AboutSection: React.FC = () => {
                         {item.title}
                       </h4>
                     </div>
-                    <p className="text-gray-300 font-inter">{item.description}</p>
                     <p className="text-gray-600 dark:text-gray-300 font-inter">{item.description}</p>
                   </div>
                 </motion.div>
