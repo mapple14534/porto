@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Download, Linkedin, Github, Instagram } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Download, Linkedin, Github, Instagram, CheckCircle, XCircle } from 'lucide-react';
+import emailjs from 'emailjs-com';
+import toast, { Toaster } from 'react-hot-toast';
 
 const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -8,13 +10,63 @@ const ContactSection: React.FC = () => {
     email: '',
     message: '',
   });
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here (EmailJS integration)
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({ name: '', email: '', message: '' });
+    setIsLoading(true);
+
+    try {
+      // EmailJS configuration
+      const serviceId = 'service_your_id'; // You'll need to replace this
+      const templateId = 'template_your_id'; // You'll need to replace this
+      const userId = 'your_user_id'; // You'll need to replace this
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        to_email: 'akhmadfaizal214@gmail.com',
+        message: formData.message,
+        reply_to: formData.email,
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams, userId);
+      
+      // Success notification
+      toast.success('Pesan berhasil dikirim! Terima kasih telah menghubungi saya.', {
+        duration: 5000,
+        position: 'top-center',
+        style: {
+          background: '#10B981',
+          color: '#fff',
+          borderRadius: '12px',
+          padding: '16px',
+          fontSize: '14px',
+        },
+        icon: '✅',
+      });
+
+      // Reset form
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      
+      // Error notification
+      toast.error('Gagal mengirim pesan. Silakan coba lagi atau hubungi langsung via email.', {
+        duration: 5000,
+        position: 'top-center',
+        style: {
+          background: '#EF4444',
+          color: '#fff',
+          borderRadius: '12px',
+          padding: '16px',
+          fontSize: '14px',
+        },
+        icon: '❌',
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -47,6 +99,7 @@ const ContactSection: React.FC = () => {
 
   return (
     <section id="contact" className="py-20 px-6">
+      <Toaster />
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -58,7 +111,7 @@ const ContactSection: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text font-poppins">
             Let's Work Together
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto font-inter">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-inter">
             Ready to bring your ideas to life? Let's discuss your next project
           </p>
         </motion.div>
@@ -84,7 +137,7 @@ const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm font-inter">Email</p>
-                    <p className="text-primary-white font-semibold font-inter">
+                    <p className="text-gray-900 dark:text-primary-white font-semibold font-inter">
                       <a href="mailto:akhmadfaizal214@gmail.com" className="hover:text-primary-cyan transition-colors">
                         akhmadfaizal214@gmail.com
                       </a>
@@ -165,7 +218,7 @@ const ContactSection: React.FC = () => {
 
               <div className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2 font-inter">
+                  <label htmlFor="name" className="block text-sm font-medium mb-2 font-inter text-gray-700 dark:text-gray-300">
                     Your Name
                   </label>
                   <input
@@ -175,13 +228,14 @@ const ContactSection: React.FC = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-white/50 dark:bg-primary-dark/50 border border-gray-300 dark:border-gray-600 rounded-lg focus:border-primary-cyan focus:outline-none transition-colors duration-300 font-inter text-gray-900 dark:text-white"
+                    disabled={isLoading}
+                    className="w-full px-4 py-3 bg-white/50 dark:bg-primary-dark/50 border border-gray-300 dark:border-gray-600 rounded-lg focus:border-primary-cyan focus:outline-none transition-colors duration-300 font-inter text-gray-900 dark:text-white disabled:opacity-50"
                     placeholder="Enter your name"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2 font-inter">
+                  <label htmlFor="email" className="block text-sm font-medium mb-2 font-inter text-gray-700 dark:text-gray-300">
                     Email Address
                   </label>
                   <input
@@ -191,13 +245,14 @@ const ContactSection: React.FC = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-white/50 dark:bg-primary-dark/50 border border-gray-300 dark:border-gray-600 rounded-lg focus:border-primary-cyan focus:outline-none transition-colors duration-300 font-inter text-gray-900 dark:text-white"
+                    disabled={isLoading}
+                    className="w-full px-4 py-3 bg-white/50 dark:bg-primary-dark/50 border border-gray-300 dark:border-gray-600 rounded-lg focus:border-primary-cyan focus:outline-none transition-colors duration-300 font-inter text-gray-900 dark:text-white disabled:opacity-50"
                     placeholder="Enter your email"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2 font-inter">
+                  <label htmlFor="message" className="block text-sm font-medium mb-2 font-inter text-gray-700 dark:text-gray-300">
                     Message
                   </label>
                   <textarea
@@ -206,20 +261,35 @@ const ContactSection: React.FC = () => {
                     value={formData.message}
                     onChange={handleChange}
                     required
+                    disabled={isLoading}
                     rows={5}
-                    className="w-full px-4 py-3 bg-white/50 dark:bg-primary-dark/50 border border-gray-300 dark:border-gray-600 rounded-lg focus:border-primary-cyan focus:outline-none transition-colors duration-300 resize-none font-inter text-gray-900 dark:text-white"
+                    className="w-full px-4 py-3 bg-white/50 dark:bg-primary-dark/50 border border-gray-300 dark:border-gray-600 rounded-lg focus:border-primary-cyan focus:outline-none transition-colors duration-300 resize-none font-inter text-gray-900 dark:text-white disabled:opacity-50"
                     placeholder="Tell me about your project..."
                   />
                 </div>
 
                 <motion.button
                   type="submit"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full flex items-center justify-center space-x-3 py-4 bg-gradient-to-r from-primary-purple to-primary-cyan text-primary-dark rounded-lg font-semibold hover-glow magnetic"
+                  disabled={isLoading}
+                  whileHover={!isLoading ? { scale: 1.05 } : {}}
+                  whileTap={!isLoading ? { scale: 0.95 } : {}}
+                  className={`w-full flex items-center justify-center space-x-3 py-4 rounded-lg font-semibold transition-all duration-300 ${
+                    isLoading
+                      ? 'bg-gray-400 cursor-not-allowed'
+                      : 'bg-gradient-to-r from-primary-purple to-primary-cyan text-primary-dark hover-glow magnetic'
+                  }`}
                 >
-                  <Send size={20} />
-                  <span className="font-inter">Send Message</span>
+                  {isLoading ? (
+                    <>
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                      <span className="font-inter">Sending...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send size={20} />
+                      <span className="font-inter">Send Message</span>
+                    </>
+                  )}
                 </motion.button>
               </div>
             </form>
