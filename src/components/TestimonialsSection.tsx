@@ -61,7 +61,6 @@ const TestimonialsSection: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text font-poppins">
             Client Testimonials
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto font-inter">
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-inter">
             What my clients say about working with me
           </p>
@@ -93,7 +92,6 @@ const TestimonialsSection: React.FC = () => {
 
                 <div className="flex-1 text-center md:text-left">
                   <Quote className="text-primary-cyan mb-4 mx-auto md:mx-0" size={32} />
-                  <p className="text-lg md:text-xl text-gray-300 mb-6 font-inter leading-relaxed">
                   <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-6 font-inter leading-relaxed">
                     "{testimonials[currentIndex].content}"
                   </p>
