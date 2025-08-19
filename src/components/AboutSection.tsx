@@ -25,7 +25,7 @@ const AboutSection: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-20 px-6">
+    <section id="about" className="py-20 px-6 bg-gray-50 dark:bg-transparent">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -38,6 +38,7 @@ const AboutSection: React.FC = () => {
             About Me
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto font-inter">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-inter">
             I have been involved in the web development field for 2 years and love
             to create visually appealing and functional web solutions.
           </p>
@@ -57,6 +58,7 @@ const AboutSection: React.FC = () => {
                 <h3 className="text-xl font-semibold font-poppins">Location</h3>
               </div>
               <p className="text-gray-300 font-inter">Indonesia</p>
+              <p className="text-gray-600 dark:text-gray-300 font-inter">Indonesia</p>
             </div>
 
             <div className="glass p-8 rounded-2xl hover-glow">
@@ -65,6 +67,7 @@ const AboutSection: React.FC = () => {
                 <h3 className="text-xl font-semibold font-poppins">Experience</h3>
               </div>
               <p className="text-gray-300 font-inter">2+ Years in Web Development</p>
+              <p className="text-gray-600 dark:text-gray-300 font-inter">2+ Years in Web Development</p>
             </div>
 
             <div className="glass p-8 rounded-2xl hover-glow">
@@ -73,6 +76,7 @@ const AboutSection: React.FC = () => {
                 <h3 className="text-xl font-semibold font-poppins">Specialization</h3>
               </div>
               <p className="text-gray-300 font-inter">Full-Stack Web Development</p>
+              <p className="text-gray-600 dark:text-gray-300 font-inter">Full-Stack Web Development</p>
             </div>
           </motion.div>
 
@@ -111,6 +115,7 @@ const AboutSection: React.FC = () => {
                       </h4>
                     </div>
                     <p className="text-gray-300 font-inter">{item.description}</p>
+                    <p className="text-gray-600 dark:text-gray-300 font-inter">{item.description}</p>
                   </div>
                 </motion.div>
               );

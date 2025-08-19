@@ -85,7 +85,9 @@ const ContactSection: React.FC = () => {
                   <div>
                     <p className="text-gray-400 text-sm font-inter">Email</p>
                     <p className="text-primary-white font-semibold font-inter">
-                      akhmadfaizal214@gmail.com
+                      <a href="mailto:akhmadfaizal214@gmail.com" className="hover:text-primary-cyan transition-colors">
+                        akhmadfaizal214@gmail.com
+                      </a>
                     </p>
                   </div>
                 </div>
@@ -96,7 +98,7 @@ const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm font-inter">Phone</p>
-                    <p className="text-primary-white font-semibold font-inter">
+                    <p className="text-gray-900 dark:text-primary-white font-semibold font-inter">
                       +62 xxx-xxxx-xxxx
                     </p>
                   </div>
@@ -108,7 +110,7 @@ const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm font-inter">Location</p>
-                    <p className="text-primary-white font-semibold font-inter">
+                    <p className="text-gray-900 dark:text-primary-white font-semibold font-inter">
                       Indonesia
                     </p>
                   </div>
@@ -173,7 +175,7 @@ const ContactSection: React.FC = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-primary-dark/50 border border-gray-600 rounded-lg focus:border-primary-cyan focus:outline-none transition-colors duration-300 font-inter"
+                    className="w-full px-4 py-3 bg-white/50 dark:bg-primary-dark/50 border border-gray-300 dark:border-gray-600 rounded-lg focus:border-primary-cyan focus:outline-none transition-colors duration-300 font-inter text-gray-900 dark:text-white"
                     placeholder="Enter your name"
                   />
                 </div>
@@ -189,7 +191,7 @@ const ContactSection: React.FC = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-primary-dark/50 border border-gray-600 rounded-lg focus:border-primary-cyan focus:outline-none transition-colors duration-300 font-inter"
+                    className="w-full px-4 py-3 bg-white/50 dark:bg-primary-dark/50 border border-gray-300 dark:border-gray-600 rounded-lg focus:border-primary-cyan focus:outline-none transition-colors duration-300 font-inter text-gray-900 dark:text-white"
                     placeholder="Enter your email"
                   />
                 </div>
@@ -205,7 +207,7 @@ const ContactSection: React.FC = () => {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 bg-primary-dark/50 border border-gray-600 rounded-lg focus:border-primary-cyan focus:outline-none transition-colors duration-300 resize-none font-inter"
+                    className="w-full px-4 py-3 bg-white/50 dark:bg-primary-dark/50 border border-gray-300 dark:border-gray-600 rounded-lg focus:border-primary-cyan focus:outline-none transition-colors duration-300 resize-none font-inter text-gray-900 dark:text-white"
                     placeholder="Tell me about your project..."
                   />
                 </div>

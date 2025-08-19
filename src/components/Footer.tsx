@@ -4,7 +4,7 @@ import { Heart, Code } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="py-12 px-6 border-t border-gray-800">
+    <footer className="py-12 px-6 border-t border-gray-200 dark:border-gray-800">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -14,20 +14,20 @@ const Footer: React.FC = () => {
           className="text-center"
         >
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <span className="text-gray-400 font-inter">Made with</span>
+            <span className="text-gray-600 dark:text-gray-400 font-inter">Made with</span>
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 1, repeat: Infinity }}
             >
               <Heart className="text-red-500 fill-current" size={20} />
             </motion.div>
-            <span className="text-gray-400 font-inter">and</span>
+            <span className="text-gray-600 dark:text-gray-400 font-inter">and</span>
             <Code className="text-primary-cyan" size={20} />
-            <span className="text-gray-400 font-inter">by</span>
+            <span className="text-gray-600 dark:text-gray-400 font-inter">by</span>
             <span className="gradient-text font-semibold font-poppins">Akhmad Faizal</span>
           </div>
           
-          <p className="text-gray-500 text-sm font-inter">
+          <p className="text-gray-500 dark:text-gray-500 text-sm font-inter">
             &copy; 2024 Akhmad Faizal. All rights reserved.
           </p>
           
@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
             viewport={{ once: true }}
             className="mt-6"
           >
-          <p className="text-xs text-gray-600 font-inter">
+          <p className="text-xs text-gray-400 dark:text-gray-600 font-inter">
               Designed with futuristic aesthetics and built with modern technologies
             </p>
           </motion.div>

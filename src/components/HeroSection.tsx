@@ -7,7 +7,7 @@ const HeroSection: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-gray-100 via-white to-gray-100 dark:from-black dark:via-gray-900 dark:to-black"
     >
       <ThreeBackground />
 
@@ -61,7 +61,7 @@ const HeroSection: React.FC = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.6 }}
-          className="text-xl md:text-2xl mb-10 text-gray-300 font-inter"
+          className="text-xl md:text-2xl mb-10 text-gray-600 dark:text-gray-300 font-inter"
         >
           Turning Ideas into{" "}
           <span className="text-primary-cyan font-semibold">

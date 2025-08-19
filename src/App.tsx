@@ -15,7 +15,10 @@ import ThemeToggle from './components/ThemeToggle';
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(() => {
+    const saved = localStorage.getItem('darkMode');
+    return saved !== null ? JSON.parse(saved) : true;
+  });
   const [matrixMode, setMatrixMode] = useState(false);
 
   useEffect(() => {
@@ -25,6 +28,15 @@ function App() {
 
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem('darkMode', JSON.stringify(darkMode));
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [darkMode]);
 
   useEffect(() => {
     // Easter egg: Konami code for matrix mode
@@ -57,7 +69,7 @@ function App() {
 
   return (
     <div className={`${darkMode ? 'dark' : ''} ${matrixMode ? 'matrix-mode' : ''}`}>
-      <div className="bg-primary-dark dark:bg-primary-dark text-primary-white min-h-screen">
+      <div className="bg-white dark:bg-primary-dark text-gray-900 dark:text-primary-white min-h-screen transition-colors duration-300">
         <AnimatePresence>
           {matrixMode && <MatrixRain />}
         </AnimatePresence>

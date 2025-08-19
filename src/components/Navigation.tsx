@@ -32,7 +32,9 @@ const Navigation: React.FC<NavigationProps> = ({ darkMode }) => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'glass-dark backdrop-blur-md' : 'bg-transparent'
+        scrolled 
+          ? 'bg-white/80 dark:bg-primary-dark/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800' 
+          : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-6 py-4">
@@ -52,7 +54,7 @@ const Navigation: React.FC<NavigationProps> = ({ darkMode }) => {
                 href={item.href}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="text-primary-white hover:text-primary-cyan transition-colors duration-300 font-inter font-medium magnetic"
+                className="text-gray-900 dark:text-primary-white hover:text-primary-cyan transition-colors duration-300 font-inter font-medium magnetic"
               >
                 {item.name}
               </motion.a>
@@ -63,7 +65,7 @@ const Navigation: React.FC<NavigationProps> = ({ darkMode }) => {
           <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-primary-white hover:text-primary-cyan transition-colors duration-300"
+            className="md:hidden text-gray-900 dark:text-primary-white hover:text-primary-cyan transition-colors duration-300"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </motion.button>
@@ -87,7 +89,7 @@ const Navigation: React.FC<NavigationProps> = ({ darkMode }) => {
                   href={item.href}
                   whileHover={{ x: 10 }}
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center space-x-3 text-primary-white hover:text-primary-cyan transition-colors duration-300 font-inter"
+                  className="flex items-center space-x-3 text-gray-900 dark:text-primary-white hover:text-primary-cyan transition-colors duration-300 font-inter"
                 >
                   <Icon size={20} />
                   <span>{item.name}</span>

@@ -93,7 +93,7 @@ const ProjectsSection: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text font-poppins">
             Featured Projects
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto font-inter">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-inter">
             A showcase of my latest work, from web applications to IoT solutions
           </p>
         </motion.div>
@@ -115,7 +115,7 @@ const ProjectsSection: React.FC = () => {
               className={`flex items-center space-x-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 magnetic ${
                 activeFilter === filter.id
                   ? 'bg-gradient-to-r from-primary-cyan to-primary-purple text-primary-dark neon-cyan'
-                  : 'glass text-primary-white hover:text-primary-cyan'
+                  : 'glass text-gray-900 dark:text-primary-white hover:text-primary-cyan'
               }`}
             >
               <Filter size={16} />
@@ -153,7 +153,7 @@ const ProjectsSection: React.FC = () => {
                       <h3 className="text-xl font-bold mb-2 font-poppins">
                         {project.title}
                       </h3>
-                      <p className="text-gray-300 text-sm font-inter">
+                      <p className="text-gray-600 dark:text-gray-300 text-sm font-inter">
                         {project.description}
                       </p>
                     </div>
@@ -166,7 +166,7 @@ const ProjectsSection: React.FC = () => {
                     <h3 className="text-xl font-bold mb-4 gradient-text font-poppins">
                       {project.title}
                     </h3>
-                    <p className="text-gray-300 mb-4 font-inter">
+                    <p className="text-gray-600 dark:text-gray-300 mb-4 font-inter">
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-2 mb-6">

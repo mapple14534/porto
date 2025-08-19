@@ -14,41 +14,41 @@ const SkillsSection: React.FC = () => {
 
   const skills = {
     frontend: [
-      { name: 'HTML', level: 95 },
-      { name: 'CSS', level: 90 },
-      { name: 'JavaScript', level: 85 },
-      { name: 'React', level: 80 },
-      { name: 'Vue.js', level: 75 },
-      { name: 'TypeScript', level: 70 },
+      { name: 'HTML', level: 95, rating: 'Expert' },
+      { name: 'CSS', level: 90, rating: 'Expert' },
+      { name: 'JavaScript', level: 85, rating: 'Advanced' },
+      { name: 'React', level: 80, rating: 'Advanced' },
+      { name: 'Vue.js', level: 75, rating: 'Intermediate' },
+      { name: 'TypeScript', level: 70, rating: 'Intermediate' },
     ],
     backend: [
-      { name: 'PHP', level: 85 },
-      { name: 'Node.js', level: 75 },
-      { name: 'MySQL', level: 80 },
-      { name: 'MongoDB', level: 70 },
-      { name: 'REST APIs', level: 85 },
-      { name: 'GraphQL', level: 65 },
+      { name: 'PHP', level: 85, rating: 'Advanced' },
+      { name: 'Node.js', level: 75, rating: 'Intermediate' },
+      { name: 'MySQL', level: 80, rating: 'Advanced' },
+      { name: 'MongoDB', level: 70, rating: 'Intermediate' },
+      { name: 'REST APIs', level: 85, rating: 'Advanced' },
+      { name: 'GraphQL', level: 65, rating: 'Intermediate' },
     ],
     design: [
-      { name: 'UI/UX Design', level: 80 },
-      { name: 'Figma', level: 85 },
-      { name: 'Adobe XD', level: 75 },
-      { name: 'Photoshop', level: 70 },
-      { name: 'Illustrator', level: 65 },
-      { name: 'Prototyping', level: 80 },
+      { name: 'UI/UX Design', level: 80, rating: 'Advanced' },
+      { name: 'Figma', level: 85, rating: 'Advanced' },
+      { name: 'Adobe XD', level: 75, rating: 'Intermediate' },
+      { name: 'Photoshop', level: 70, rating: 'Intermediate' },
+      { name: 'Illustrator', level: 65, rating: 'Intermediate' },
+      { name: 'Prototyping', level: 80, rating: 'Advanced' },
     ],
     mobile: [
-      { name: 'React Native', level: 70 },
-      { name: 'Flutter', level: 65 },
-      { name: 'PWA', level: 80 },
-      { name: 'Ionic', level: 60 },
-      { name: 'Cordova', level: 55 },
-      { name: 'App Store', level: 70 },
+      { name: 'React Native', level: 70, rating: 'Intermediate' },
+      { name: 'Flutter', level: 65, rating: 'Intermediate' },
+      { name: 'PWA', level: 80, rating: 'Advanced' },
+      { name: 'Ionic', level: 60, rating: 'Beginner' },
+      { name: 'Cordova', level: 55, rating: 'Beginner' },
+      { name: 'App Store', level: 70, rating: 'Intermediate' },
     ],
   };
 
   return (
-    <section id="skills" className="py-20 px-6 bg-gradient-to-b from-transparent to-primary-dark/20">
+    <section id="skills" className="py-20 px-6 bg-gradient-to-b from-transparent to-gray-100 dark:to-primary-dark/20">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -61,6 +61,7 @@ const SkillsSection: React.FC = () => {
             Skills & Expertise
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto font-inter">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-inter">
             Constantly evolving and mastering new technologies to deliver cutting-edge solutions
           </p>
         </motion.div>
@@ -84,7 +85,7 @@ const SkillsSection: React.FC = () => {
                 className={`flex items-center space-x-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 magnetic ${
                   activeCategory === category.id
                     ? 'bg-gradient-to-r from-primary-cyan to-primary-purple text-primary-dark neon-cyan'
-                    : 'glass text-primary-white hover:text-primary-cyan'
+                    : 'glass text-gray-900 dark:text-primary-white hover:text-primary-cyan'
                 }`}
               >
                 <Icon size={20} />
@@ -112,12 +113,12 @@ const SkillsSection: React.FC = () => {
             >
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-semibold font-poppins">{skill.name}</h3>
-                <span className="text-primary-cyan font-bold font-inter">
-                  {skill.level}%
+                <span className="text-primary-cyan font-bold font-inter text-sm">
+                  {skill.rating}
                 </span>
               </div>
               
-              <div className="w-full bg-gray-700 rounded-full h-3 overflow-hidden">
+              <div className="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-3 overflow-hidden">
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: `${skill.level}%` }}
